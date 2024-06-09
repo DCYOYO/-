@@ -186,7 +186,7 @@
             z-index: 2;
         }
 
-        #popup-button {
+        .popup-button {
             position: fixed;
             bottom: 0;
             right: 0;
@@ -672,7 +672,7 @@
                 </div>
             </div>
         </div>
-        <button class="fa-solid fa-gear"id="popup-button"></button>
+        <button class="fa-solid fa-gear popup-button"></button>
         
         <div id="popup-content" class="popup-content">
             <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#weatherModal">
@@ -707,7 +707,7 @@
                 let newX = offsetX + dx;
                 let newY = offsetY + dy;
                 yes = false;
-                const button = $('#popup-button');
+                const button = $('.popup-button');
                 const maxX = $(window).width() - button.outerWidth();
                 const maxY = $(window).height() - button.outerHeight();
                 newX = Math.max(0, Math.min(maxX, newX));
@@ -719,7 +719,7 @@
         }
 
         function updatePopupPosition(buttonOffsetX, buttonOffsetY) {
-            const button = $('#popup-button');
+            const button = $('.popup-button');
             const popup = $('#popup-content');
             let popupX = buttonOffsetX;
             let popupY = buttonOffsetY - popup.outerHeight();
@@ -755,7 +755,7 @@
             $('#modalTextDisplay').css('color', invertedColor);
         }
         $(document).ready(function () {
-            const button = $('#popup-button');
+            const button = $('.popup-button');
             offsetX = button.offset().left;
             offsetY = button.offset().top;
             updatePopupPosition(offsetX, offsetY);
@@ -862,7 +862,7 @@
                 const invertedColor = `rgb(${invertedRed}, ${invertedGreen}, ${invertedBlue})`;
                 $('#mainTextDisplay').css('color', invertedColor);
                 $('.popup-content button').css('color', invertedColor);
-                $('#popup-button').css('color', invertedColor);
+                $('.popup-button').css('color', invertedColor);
 
 
 
