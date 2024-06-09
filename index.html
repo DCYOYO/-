@@ -14,7 +14,7 @@
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
     <style>
@@ -221,9 +221,9 @@
         }
 
         .popup-content button {
-            
+
             background-color: transparent;
-            
+
             padding: 8px 15px;
             border-radius: 3px;
             cursor: pointer;
@@ -292,7 +292,9 @@
         ul.icons li:last-child {
             padding-right: 0;
         }
-
+        ul.icons button{
+            border-radius:50px ;
+        }
         .color-display {
             width: 100%;
             height: 200px;
@@ -331,6 +333,154 @@
             top: 50%;
             transform: translateY(-50%);
         }
+
+        .modal-dialog {
+            max-width: 70%;
+        }
+
+        #calculator-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #calculator {
+            max-width: 360px;
+            background-color: #0d1b2a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            margin-right: 20px;
+        }
+
+        #display {
+            width: 100%;
+            height: 56px;
+            font-size: 20px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            color: #e0e1dd;
+            background-color: rgba(144, 144, 144, 0.3);
+            border: none;
+            box-sizing: border-box;
+        }
+
+        #ans {
+            width: 100%;
+            height: 30px;
+            font-size: 15px;
+            text-align: right;
+            margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            color: #e0e1dd;
+            background-color: rgba(144, 144, 144, 0.3);
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .operator {
+            color: #219ebc;
+        }
+
+        #ac {
+            color: #bf4d5d;
+        }
+
+        .equal {
+            width: calc(50% - 10px);
+        }
+
+        #de {
+            width: calc(50% - 10px);
+        }
+
+        .lol {
+            width: calc(25% - 10px);
+            height: 50px;
+            font-size: 20px;
+            margin: 10px 5px;
+            border: none;
+            border-radius: 5px;
+            float: left;
+            background-color: rgb(13, 17, 42);
+            color: #e0e1dd;
+            -webkit-box-shadow: -1px 1px 30px -5px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: -1px 1px 30px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: -1px 1px 30px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        .lol:hover {
+            cursor: pointer;
+        }
+
+        .lol:active {
+            transform: scale(1.05);
+            box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.19), 0 1.5px 1.5px rgba(0, 0, 0, 0.23);
+        }
+
+        #history {
+            max-width: 360px;
+            background-color: #0d1b2a;
+            border-radius: 10px;
+            padding: 30px;
+            /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); */
+            color: #e0e1dd;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .history-item {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .history-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #container {
+            width: 80vw;
+            height: 100vh;
+            
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box {
+            width: 150px;
+            /* 方塊的寬度 */
+            height: 150px;
+            /* 方塊的高度 */
+            background-image: url('https://static.wikia.nocookie.net/pet-simulator/images/e/e0/Pop_Cat_Animated.gif/revision/latest?cb=20230217164818');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+        }
+        .popcat{
+            position: fixed;
+            display: flex;
+            justify-content: space-between;
+            top: 0px;
+            left: 80%;
+            width: 20%;
+            padding: 10px;
+        }
+        .circle-btn {
+            border-radius: 50% !important;
+            width: 50px !important;
+            height: 50px !important;
+            text-align: center !important;
+            padding: 0 !important;
+            font-size: 24px !important;
+            line-height: 50px !important; /* 使文字垂直居中 */
+            box-shadow: none !important;
+            color: transparent !important;
+            background-color: #000 !important;
+        }
+        
     </style>
 </head>
 
@@ -352,13 +502,13 @@
                     <em></em>
                 </a>
                 <a href="#page3" class="btn1" data-transition="slide">
-                    <span>Button 3</span>
+                    <span>popcat</span>
                     <em></em>
                 </a>
-                <a href="#page2" class="btn1" data-transition="slide">
+                <!-- <a href="#page2" class="btn1" data-transition="slide">
                     <span>Button 2</span>
                     <em></em>
-                </a>
+                </a> -->
             </div>
 
 
@@ -367,8 +517,8 @@
                 <ul class="icons">
                     <li><a href="#" class="icon fa-sharp fa-solid fa-x"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon fa fa-facebook"><span class="label">Facebook</span></a></li>
-                    <li><a href="#" class="icon fa fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="#" class="icon fa fa-envelope"><span class="label">Email</span></a></li>
+                    <li><a href="#" class="icon fa-brands fa-discord"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-brands fa-github"><span class="label">Email</span></a></li>
                 </ul>
             </div>
 
@@ -386,9 +536,13 @@
 
             </div>
             <div data-role="page" id="page3" class="back">
-
-                lol
-
+                
+                    <div id="container"></div>
+                        <div class="popcat">
+                            <button id="startAddingBtn" class="fa-solid fa-play circle-btn"></button>
+                            <button id="stopAddingBtn" class="fa-solid fa-stop circle-btn"></button>
+                            <button id="clearBoxesBtn" class="fa-solid fa-rotate-right circle-btn" ></button>
+                        </div>
             </div>
         </div>
         <div class="modal fade" id="weatherModal" tabindex="-1" aria-labelledby="weatherModalLabel" aria-hidden="true">
@@ -415,7 +569,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary" id="getWeatherBtn">查詢天氣</button>
+                        <button type="button" class="btn btn-primary getWeatherBtn">查詢天氣</button>
                     </div>
                 </div>
             </div>
@@ -468,24 +622,75 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success" id="setBackgroundBtn" data-dismiss="modal">Set as
+                        <button type="button" class="btn btn-success setBackgroundBtn" data-dismiss="modal">Set as
                             Background</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <button id="popup-button" class="popup-button"></button>
+        <div class="modal fade" id="calculatorModal" tabindex="-1" aria-labelledby="calculatorModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content" style="background-color: #0d1b2a; color: #e0e1dd;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="calculatorModalLabel">Calculator</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="calculator-container">
+                            <div id="history">
+                                <h3>History</h3>
+                                <div id="history-content"></div>
+                            </div>
+                            <div id="calculator">
+                                <input type="text" id="display" disabled>
+                                <input type="text" id="ans" disabled>
+                                <br>
+                                <button id="ac" class="operator lol">AC</button>
+                                <button id="de" class="operator lol">←</button>
+                                <button id="/" class="operator lol">/</button>
+                                <br>
+                                <button id="7" class="lol">7</button>
+                                <button id="8" class="lol">8</button>
+                                <button id="9" class="lol">9</button>
+                                <button id="*" class="operator lol">*</button>
+                                <br>
+                                <button id="4" class="lol">4</button>
+                                <button id="5" class="lol">5</button>
+                                <button id="6" class="lol">6</button>
+                                <button id="-" class="operator lol">-</button>
+                                <br>
+                                <button id="1" class="lol">1</button>
+                                <button id="2" class="lol">2</button>
+                                <button id="3" class="lol">3</button>
+                                <button id="+" class="operator lol">+</button>
+                                <br>
+                                <button id="00" class="lol">00</button>
+                                <button id="0" class="lol">0</button>
+                                <button id="." class="operator lol">.</button>
+                                <button id="=" class="operator lol">=</button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="popup-button"></button>
 
         <div id="popup-content" class="popup-content">
             <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#weatherModal">
-                <b>開始查詢</b>
+                <b>查詢天氣</b>
             </button>
-            <button type="button" class="btn btn-outline-dark" id="openModalBtn" data-toggle="modal"
-                data-target="#colorAdjusterModal">
-                <b>Open Color Adjuster</b>
+            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#colorAdjusterModal">
+                <b>背景選擇器</b>
             </button>
-
+            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#calculatorModal">
+                <b>計算機</b>
+            </button>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
@@ -509,7 +714,7 @@
                 let newX = offsetX + dx;
                 let newY = offsetY + dy;
                 yes = false;
-                const button = $('#popup-button');
+                const button = $('.popup-button');
                 const maxX = $(window).width() - button.outerWidth();
                 const maxY = $(window).height() - button.outerHeight();
                 newX = Math.max(0, Math.min(maxX, newX));
@@ -521,7 +726,7 @@
         }
 
         function updatePopupPosition(buttonOffsetX, buttonOffsetY) {
-            const button = $('#popup-button');
+            const button = $('.popup-button');
             const popup = $('#popup-content');
             let popupX = buttonOffsetX;
             let popupY = buttonOffsetY - popup.outerHeight();
@@ -547,7 +752,9 @@
             const rgbColor = `rgb(${red}, ${green}, ${blue})`;
             $('#colorDisplay').css('background-color', rgbColor);
             $('#colorCode').text(`RGB(${red}, ${green}, ${blue})`);
+            
 
+            
             const invertedRed = 255 - red;
             const invertedGreen = 255 - green;
             const invertedBlue = 255 - blue;
@@ -555,7 +762,7 @@
             $('#modalTextDisplay').css('color', invertedColor);
         }
         $(document).ready(function () {
-            const button = $('#popup-button');
+            const button = $('.popup-button');
             offsetX = button.offset().left;
             offsetY = button.offset().top;
             updatePopupPosition(offsetX, offsetY);
@@ -605,7 +812,7 @@
             });
 
             // 點擊按鈕時獲取天氣資訊
-            $('#getWeatherBtn').on('click', function () {
+            $('.getWeatherBtn').on('click', function () {
                 var selectedCity = $('#citySelect').val();
                 if (selectedCity === 'other') {
                     selectedCity = $('#otherCity').val();
@@ -617,46 +824,44 @@
 
                 var fullWeatherUrl = `${weatherUrl}${selectedCity}&appid=0a071e7171b934d4601528841e88d90f&units=metric&lang=zh_tw`;
 
-                // 使用 fetch API 從 OpenWeatherMap API 獲取天氣資訊
-                fetch(fullWeatherUrl)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('獲取天氣資訊失敗');
-                        }
-                        return response.json();
-                    })
-                    .then(data => {
+                // 使用 $.ajax 獲取天氣資訊
+                $.ajax({
+                    url: fullWeatherUrl,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
                         var weatherInfo = `<div class="card">
-                                   <div class="card-body">
-                                       <h5 class="card-title">城市: ${data.name}</h5>
-                                       <p class="card-text">溫度: ${data.main.temp}°C</p>
-                                       <p class="card-text">天氣: ${data.weather[0].description}</p>
-                                       <p class="card-text">濕度: ${data.main.humidity}%</p>
-                                       <p class="card-text">風速: ${data.wind.speed} m/s</p>
-                                   </div>
-                               </div>`;
+                                               <div class="card-body">
+                                                   <h5 class="card-title">城市: ${data.name}</h5>
+                                                   <p class="card-text">溫度: ${data.main.temp}°C</p>
+                                                   <p class="card-text">天氣: ${data.weather[0].description}</p>
+                                                   <p class="card-text">濕度: ${data.main.humidity}%</p>
+                                                   <p class="card-text">風速: ${data.wind.speed} m/s</p>
+                                               </div>
+                                           </div>`;
                         $('#weatherResultBody').html(weatherInfo);
                         // 關閉輸入城市名稱的模態框
                         $('#weatherModal').modal('hide');
                         // 顯示結果的模態框
                         $('#weatherResultModal').modal('show');
-                    })
-                    .catch(error => {
+                    },
+                    error: function (error) {
                         console.error('錯誤:', error);
-                        $('#weatherResultBody').html('錯誤: ' + error.message);
+                        $('#weatherResultBody').html('錯誤: ' + error.responseText);
                         // 顯示結果的模態框
                         $('#weatherResultModal').modal('show');
-                    });
+                    }
+                });
             });
-            $('#setBackgroundBtn').on('click', function () {
+            $('.setBackgroundBtn').on('click', function () {
                 const red = $('#redSlider').val();
                 const green = $('#greenSlider').val();
                 const blue = $('#blueSlider').val();
 
                 const rgbColor = `rgb(${red}, ${green}, ${blue})`;
                 $('.back').css('background-color', rgbColor);
-                
-                
+
+
 
                 const invertedRed = 255 - red;
                 const invertedGreen = 255 - green;
@@ -671,6 +876,143 @@
             });
 
             $('#redSlider, #greenSlider, #blueSlider').on('input', updateColor);
+            const display = $("#display");
+            const ans = $("#ans");
+            const btns = $("button");
+            const historyContent = $("#history-content");
+            var fir = true;
+
+            display.val("0");
+            ans.val("ANS=");
+
+            btns.on('click', function () {
+                
+                
+                var dis = display.val().slice(-1);
+                var va = $(this).attr("id");
+                if(display.val()=="undefined"){
+                    display.val("");
+                }
+                else if ($(this).attr("id") === "=") {
+                    
+                    try {                  
+                            let result = eval(display.val());
+                            ans.val("ANS=" + result);
+                            addToHistory(display.val() + " = " + result, result);
+                            fir = true;
+                    } catch (e) {
+                        ans.val("Error");
+                    }
+                } else if ($(this).attr("id") == "de") {
+                    display.val(display.val().slice(0, -1));
+                } else if ($(this).attr("id") === "ac") {
+                    display.val("0");
+                    ans.val("ANS=");
+                    fir = true;
+                } else {
+                    if (fir) {
+                        ans.val("ANS=");
+                        if ($(this).attr("id") == "00" || $(this).attr("id") == "0") {
+                            display.val("0");
+                        } else if (va == "+" || va == "." || va == "/" || va == "*" || va == "-") {
+                            ans.val("Error");
+                            display.val("0");
+                        } else {
+                            display.val($(this).attr("id"));
+                            fir = false;
+                        }
+                    } else {
+                        if (dis != "+" && dis != "." && dis != "/" && dis != "*" && dis != "-") {
+                            display.val(display.val() + $(this).attr("id"));
+                        } else if (va != "+" && va != "." && va != "/" && va != "*" && va != "-") {
+                            display.val(display.val() + $(this).attr("id"));
+                        } else {
+                            display.val(display.val().slice(0, -1) + va);
+                        }
+                    }
+                }
+                
+                
+
+            });
+            
+
+            function addToHistory(expression, result) {
+                let historyItem = $("<div></div>");
+                historyItem.addClass("history-item");
+                historyItem.text(expression);
+                historyItem.attr("id", result);
+                historyItem.on('click', function () {
+                    if (fir) {
+                        if(result!="undefined"){
+                            display.val($(this).attr('id'));
+                            fir = false;
+                        } 
+                    } else {
+                        if(result!="undefined"){
+                            display.val(display.val() + $(this).attr('id'));
+                        }  
+                    }
+                });
+                historyContent.append(historyItem);
+            }
+            var intervalId;
+            var rotateInterval;
+            var angle = 0;
+            $('#startAddingBtn').on('click', function() {
+                // 設置一個定時器，每隔500毫秒添加一個新方塊
+                
+                intervalId = setInterval(function() {
+                    // 創建新方塊
+                    var newBox = $('<div class="box"></div>');
+                    
+                    // 獲取容器的寬度和高度
+                    var containerWidth = $('#container').width();
+                    var containerHeight = $('#container').height();
+
+                    // 隨機生成 X 和 Y 座標
+                    var randomX = Math.floor(Math.random() * (containerWidth - 100)); // 100 是方塊的寬度
+                    var randomY = Math.floor(Math.random() * (containerHeight - 100)); // 100 是方塊的高度
+
+                    // 設置方塊的位置
+                    newBox.css({
+                        left: randomX + 'px',
+                        top: randomY + 'px'
+                    });
+
+                    // 將新方塊添加到容器中
+                    $('#container').append(newBox);
+                }, (Math.random()*300)+30); // 每500毫秒添加一次
+            });
+            
+            $('#stopAddingBtn').on('click', function() {
+                // 清除定時器
+                clearInterval(intervalId);
+            });
+
+            $('#clearBoxesBtn').on('click', function() {
+                // 移除所有方塊
+                $('#container').empty();
+                // 停止自動添加
+                clearInterval(intervalId);
+            });
+            var angle = 0;
+        var rotateInterval;
+
+        function rotateObject(sus) {
+            angle += 1;
+           sus.css('transform', 'rotate(' + angle + 'deg) !important');
+        }
+
+        function startRotation(sus) {
+            rotateInterval = setInterval(rotateObject(sus), 10); // 每10毫秒旋转1度
+        }
+
+        function pauseRotation() {
+            clearInterval(rotateInterval);
+        }
+
+        
         });
 
 
